@@ -55,6 +55,9 @@ class GeneratorTests(unittest.TestCase):
             with zipfile.ZipFile(output) as archive:
                 self.assertIn("word/document.xml", archive.namelist())
                 self.assertIn("示例软件".encode("utf-8"), archive.read("word/header1.xml"))
+                document = archive.read("word/document.xml")
+                self.assertIn(b'<w:sz w:val="15"/>', document)
+                self.assertNotIn(b"{font_size}", document)
 
 
 if __name__ == "__main__":

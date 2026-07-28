@@ -139,7 +139,7 @@ def _paragraph(text: str, font_size: int = 15, bold: bool = False) -> str:
         "<w:p><w:pPr><w:spacing w:before=\"0\" w:after=\"0\" w:line=\"240\" "
         "w:lineRule=\"exact\"/></w:pPr><w:r><w:rPr>"
         f"{bold_xml}<w:rFonts w:ascii=\"Courier New\" w:hAnsi=\"Courier New\" "
-        "w:eastAsia=\"宋体\"/><w:sz w:val=\"{font_size}\"/>"
+        f"w:eastAsia=\"宋体\"/><w:sz w:val=\"{font_size}\"/>"
         f"</w:rPr><w:t xml:space=\"preserve\">{_xml_text(text)}</w:t></w:r></w:p>"
     )
 
