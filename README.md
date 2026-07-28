@@ -28,7 +28,7 @@
 克隆项目：
 
 ```bash
-git clone https://github.com/<your-name>/Code2Copyright.git
+git clone https://github.com/gaoJava/Code2Copyright.git
 cd Code2Copyright
 ```
 
