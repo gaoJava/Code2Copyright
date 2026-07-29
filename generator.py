@@ -10,7 +10,7 @@ from typing import Optional, Sequence, Union
 from xml.sax.saxutils import escape
 
 
-LINES_PER_PAGE = 50
+LINES_PER_PAGE = 60
 SUPPORTED_EXTENSIONS = {
     ".py", ".pyw", ".java", ".kt", ".kts",
     ".vue", ".js", ".jsx", ".ts", ".tsx", ".mjs", ".cjs",
@@ -146,7 +146,7 @@ def _paragraph(text: str, font_size: int = 15, bold: bool = False) -> str:
 
 def _source_row(line: Optional[SourceLine]) -> str:
     text = f"{line.number:06d}  {line.text}" if line is not None else " "
-    # 固定行高 + 单元格禁止换行，避免 Word 因长源码行重排而破坏每页 50 行。
+    # 固定行高 + 单元格禁止换行，避免 Word 因长源码行重排而破坏每页 60 行。
     return (
         '<w:tr><w:trPr><w:trHeight w:val="240" w:hRule="exact"/>'
         '<w:cantSplit/></w:trPr><w:tc><w:tcPr><w:tcW w:w="10466" w:type="dxa"/>'

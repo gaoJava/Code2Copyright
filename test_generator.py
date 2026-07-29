@@ -23,9 +23,10 @@ class GeneratorTests(unittest.TestCase):
     def test_first_last_selection(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
-            (root / "big.py").write_text("\n".join(f"x={i}" for i in range(3100)), encoding="utf-8")
+            (root / "big.py").write_text("\n".join(f"x={i}" for i in range(4000)), encoding="utf-8")
             result = scan_project(root)
             selected = select_lines(result.lines, "first_last")
+            self.assertEqual(LINES_PER_PAGE, 60)
             self.assertEqual(len(selected), 60 * LINES_PER_PAGE)
             self.assertEqual(selected[0].number, 1)
             self.assertEqual(selected[-1].number, len(result.lines))
